@@ -44,23 +44,6 @@ for (var i=0; i<4; i++) { //creating digit buttons
     digitsDiv.appendChild(rowDiv);
 }
 
-function inputValue() { //adding numbers to value on top
-    var thisValue = this.querySelector(".value")
-    if (priceDiv.innerHTML == 0) {
-        priceDiv.innerHTML = thisValue.innerHTML;
-    } else if (priceDiv.innerHTML.includes(".") && thisValue.innerHTML === ".") {
-        priceDiv.innerHTML = priceDiv.innerHTML;
-        console.log(priceDiv.innerHTML.includes("."))
-    } else if (result === true) {
-        priceDiv.innerHTML = thisValue.innerHTML;
-    } else if (memory.includes("+") || memory.includes("-") || memory.includes("*") || memory.includes("/")) {
-        priceDiv.innerHTML = thisValue.innerHTML;
-    } else {
-        priceDiv.innerHTML = priceDiv.innerHTML + thisValue.innerHTML;
-        // result = false;
-    };
-}
-
 // != 0 then += num to the screen 
 
 for (var i=0; i<5; i++) { //creating math sign buttons
@@ -97,84 +80,166 @@ for (var i=0; i<9; i++) { //creating values in buttons
 }
 
 // console.log(typeof digits[0].innerHTML);
-var memory = 0;
-var result = false;
 
 value[9].innerHTML = "0";
 value[10].innerHTML = "00";
 value[11].innerHTML = ".";
 
+var eqArr = [];
+var firstNum;
+var mathSign;
+var secondNum;
+var result;
+var memory;
+var repeatNum;
+var repeatSign;
+
+function inputValue() { //adding numbers to value on top
+    var thisValue = this.querySelector(".value");
+    if (!(result)) {
+        if (priceDiv.innerHTML === "0") {
+            priceDiv.innerHTML = thisValue.innerHTML;
+            eqArr.push(priceDiv.innerHTML);
+            console.log(eqArr);
+        } else if (priceDiv.innerHTML.includes(".") && thisValue.innerHTML === ".") {
+            priceDiv.innerHTML = priceDiv.innerHTML;
+        } else if (eqArr[eqArr.length-1] === "+" || eqArr[eqArr.length-1] === "-" || eqArr[eqArr.length-1] === "*" || eqArr[eqArr.length-1] === "/") {
+            priceDiv.innerHTML = thisValue.innerHTML;
+            eqArr.push(priceDiv.innerHTML);
+            console.log(eqArr);        
+        } else {
+            priceDiv.innerHTML = priceDiv.innerHTML + thisValue.innerHTML;
+            eqArr.push(priceDiv.innerHTML);
+            console.log(eqArr);
+        }
+    } else if ((result)) {
+        if (priceDiv.innerHTML === "0") {
+            priceDiv.innerHTML = thisValue.innerHTML;
+            // eqArr.push(priceDiv.innerHTML);
+            // console.log(eqArr);
+        } else if (priceDiv.innerHTML.includes(".") && thisValue.innerHTML === ".") {
+            priceDiv.innerHTML = priceDiv.innerHTML;
+        } else if (eqArr[eqArr.length-1] === "+" || eqArr[eqArr.length-1] === "-" || eqArr[eqArr.length-1] === "*" || eqArr[eqArr.length-1] === "/") {
+            priceDiv.innerHTML = thisValue.innerHTML;
+            eqArr.push(priceDiv.innerHTML);
+            console.log(eqArr);        
+        } else {
+            priceDiv.innerHTML = priceDiv.innerHTML + thisValue.innerHTML;
+            eqArr.push(priceDiv.innerHTML);
+            console.log(eqArr);
+        }
+    }
+    // if (priceDiv.innerHTML === "0") {
+    //     priceDiv.innerHTML = thisValue.innerHTML;
+    //     eqArr.push(priceDiv.innerHTML);
+    //     console.log(eqArr);
+    // } else if (eqArr[eqArr.length-1] === "+" || eqArr[eqArr.length-1] === "-" || eqArr[eqArr.length-1] === "*" || eqArr[eqArr.length-1] === "/") {
+    //     priceDiv.innerHTML = thisValue.innerHTML;
+    //     eqArr.push(priceDiv.innerHTML);
+    //     console.log(eqArr);
+    // } else { //adding on extra digits
+    //     priceDiv.innerHTML = priceDiv.innerHTML + thisValue.innerHTML;
+    //     eqArr.push(priceDiv.innerHTML);
+    //     console.log(eqArr);
+    // }
+}
+
 math[0].innerHTML = "/";
 math[0].addEventListener("click", divide);
 function divide() {
-    memory = priceDiv.innerHTML;
-    memory = memory + math[0].innerHTML;
-    console.log(memory);
-    console.log(parseFloat(memory));
 }
 
 math[1].innerHTML = "*";
 math[1].addEventListener("click", multiply);
 function multiply() {
-    memory = priceDiv.innerHTML;
-    memory = memory + math[1].innerHTML;
-    console.log(memory);
-    console.log(parseFloat(memory));
 }
 
 math[2].innerHTML = "-";
 math[2].addEventListener("click", subtract);
 function subtract() {
-    memory = priceDiv.innerHTML;
-    memory = memory + math[2].innerHTML;
-    console.log(memory);
-    console.log(parseFloat(memory));
 }
 
 math[3].innerHTML = "+";
 math[3].addEventListener("click", add);
 function add() {
-    memory = priceDiv.innerHTML;
-    memory = memory + math[3].innerHTML;
-    console.log(memory);
-    console.log(parseFloat(memory));
+    if (!(result)) {
+        mathSign = "+";
+        console.log(mathSign, "mathSign");
+        eqArr.push(mathSign);
+        console.log(eqArr);
+        firstNum = priceDiv.innerHTML;
+    } else if ((result)) {
+        mathSign = "+";
+    }
+    // if (!(result)) {
+    //     firstNum = eqArr[eqArr.length-1];
+    //     // console.log(firstNum);
+    //     mathSign = "+";
+    //     // console.log(mathSign);
+    //     eqArr.push(mathSign);
+    //     console.log(eqArr);
+    // } else if ((result)) {
+    //     mathSign = "+";
+    //     eqArr.push(mathSign);
+    //     firstNum = result;
+    //     console.log(eqArr);
+    // }
 }
 
 math[4].innerHTML = "=";
 math[4].addEventListener("click", equal);
 function equal() {
-    if (memory.includes("+")) {
-        priceDiv.innerHTML = parseFloat(memory) + parseFloat(priceDiv.innerHTML);
-    } else if (memory.includes("-")) {
-        priceDiv.innerHTML = parseFloat(memory) - priceDiv.innerHTML;
-    } else if (memory.includes("*")) {
-        priceDiv.innerHTML = parseFloat(memory) * priceDiv.innerHTML;
-    } else if (memory.includes("/")) {
-        priceDiv.innerHTML = parseFloat(memory) / priceDiv.innerHTML;
+    if (mathSign === "+") { //for adding
+        if (!(result)) {
+            secondNum = priceDiv.innerHTML;
+            result = parseFloat(firstNum) + parseFloat(secondNum);
+            priceDiv.innerHTML = result;
+            eqArr.push("=");
+            eqArr.push(result);
+            console.log(eqArr);
+            mathSign = null;
+        }
+            // if (!(result)) {
+            // secondNum = priceDiv.innerHTML;
+            // eqArr.push("=");
+            // console.log(eqArr);
+            // result = parseFloat(firstNum) + parseFloat(secondNum);
+            // priceDiv.innerHTML = result;
+            // eqArr = [];
+            // eqArr.push(result);
+            // firstNum = result;
+            // console.log(firstNum, "firstNum");
+            // } else if ((result)) {
+            //     result = parseFloat(firstNum) + parseFloat(secondNum);
+            //     priceDiv.innerHTML = result;
+            //     eqArr = [];
+            //     eqArr.push(result);
+            //     firstNum = result; 
+            // }
     }
-    // result = true;
 }
 
 action[0].innerHTML = "Clear";
 action[0].addEventListener("click", clear);
 function clear() {
     priceDiv.innerHTML = 0;
+    result = null;
+    firstNum = null;
+    secondNum = null;
+    eqArr = [];
 }
 
 action[1].innerHTML = "Get Balance";
 action[1].addEventListener("click", getBalance);
 function getBalance() {
-    priceDiv.innerHTML = memory;
 }
 
 action[2].innerHTML = "Deposit Cash";
 action[2].addEventListener("click", deposit);
 function deposit() {
-
 }
 
 action[3].innerHTML = "Withdraw Cash";
 action[3].addEventListener("click", withdraw);
 function withdraw() {
-
 }
