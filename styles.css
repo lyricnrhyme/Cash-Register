@@ -1,0 +1,105 @@
+#calcDiv {
+    border: 1px red solid;
+    width: 900px;
+    height: 700px;
+    border-radius: 30px;
+}
+
+#displayDiv {
+    border: 1px red solid;
+    width: 90%;
+    height: 20%;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 3%;
+    text-align: right;
+    font-size: 100px;
+    color: red;
+}
+
+#priceDiv {
+    padding-top: 2%;
+}
+
+#buttonsDiv {
+    border: 1px red solid;
+    width: 90%;
+    height: 68%;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+}
+
+#digitsDiv {
+    border: 1px red solid;
+    width: 50%;
+    height: 90%;
+    border-radius: 30px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+#mathDiv {
+    border: 1px red solid;
+    width: 15%;
+    height: 90%;
+    border-radius: 30px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.rowDiv {
+    /* border: 1px red solid; */
+    width: 90%;
+    height: 20%;
+    margin: auto;
+    margin-top: 4%;
+    display: flex;
+}
+
+.digitButton {
+    border: 1px red solid;
+    width: 28%;
+    height: 95%;
+    margin: auto;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    border-radius: 10px;
+}
+
+.math {
+    border: 1px red solid;
+    width: 90%;
+    height: 18%;
+    margin: auto;
+    line-height: 80px;
+    margin-top: 4%;
+    border-radius: 25px;
+    color: red;
+    font-size: 60px;
+    text-align: center;
+}
+
+#actionDiv {
+    border: 1px red solid;
+    width: 21%;
+    height: 90%;
+    border-radius: 30px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.action {
+    border: 1px red solid;
+    width: 90%;
+    height: 22%;
+    margin: auto;
+    line-height: 16%;
+    margin-top: 4%;
+    border-radius: 25px;
+    color: red;
+    text-align: center;
+    line-height: 90px;
+}
