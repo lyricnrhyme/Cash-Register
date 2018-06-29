@@ -1,105 +1,198 @@
-#calcDiv {
-    border: 1px red solid;
-    width: 900px;
-    height: 700px;
-    border-radius: 30px;
-}
-
-#displayDiv {
-    border: 1px red solid;
-    width: 90%;
-    height: 20%;
-    border-radius: 30px;
-    margin: auto;
-    margin-top: 3%;
+#outside {
+    border: 1px solid rgb(251,79,82);
+    height: 510px;
+    border-radius: 15px;
+    /* background: url("https://i.pinimg.com/originals/2e/af/90/2eaf90e3363adf2cfe2d8f44c559dbea.jpg") no-repeat fixed center; */
+    background-size: 100%;
+    width: 580px;
+    background-color:black;
+  }
+  
+  #parentNumber {
+      display:flex;
+    background-color: rgba(184, 241, 186, 0.75);
+    height: 70px;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 70px;
+    width: 95%;
+    align-items: center;
     text-align: right;
-    font-size: 100px;
-    color: red;
-}
-
-#priceDiv {
-    padding-top: 2%;
-}
-
-#buttonsDiv {
-    border: 1px red solid;
-    width: 90%;
-    height: 68%;
-    border-radius: 30px;
-    margin: auto;
-    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    /* background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center; */
+  }
+  
+  #number {
+  flex: 1 1 100%;
+  /*   background-color: #b8f1ba;
+    height: 70px;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 70px;
+    width: 100%; */
+    padding: 10px;
+    color: white;
+  }
+  
+  /* #outside > div:hover{
+    background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center;
+  }
+   */
+  #powerButton {
     display: flex;
-}
-
-#digitsDiv {
-    border: 1px red solid;
-    width: 50%;
-    height: 90%;
-    border-radius: 30px;
-    margin-top: 2%;
-    margin-left: 3%;
-}
-
-#mathDiv {
-    border: 1px red solid;
-    width: 15%;
-    height: 90%;
-    border-radius: 30px;
-    margin-top: 2%;
-    margin-left: 3%;
-}
-
-.rowDiv {
-    /* border: 1px red solid; */
-    width: 90%;
-    height: 20%;
-    margin: auto;
-    margin-top: 4%;
-    display: flex;
-}
-
-.digitButton {
-    border: 1px red solid;
-    width: 28%;
-    height: 95%;
-    margin: auto;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  #on {
+    opacity: .85;
+    background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
     text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color: white;
+  }
+  
+  #on:hover {
+  background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
+    text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color:white;
+    font-size: 45px;
+    /* background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center; */
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  #off {
+    opacity: .85;
+    background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
+    text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color: white;
+  }
+  
+  #off:hover {
+    background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
+    text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color:white;
+    font-size: 45px;
+    /* background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center; */
+    cursor: pointer;
+  }
+  
+  #clear {
+    opacity: .85;
+    background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
+    text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color: white;
+  }
+  
+  #clear:hover {
+  background-color: rgb(251,79,82);
+    height: 70px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 40px;
+    text-align: center;
+    width: 33%;
+    line-height: 70px;
+    color:white;
+    font-size: 45px;
+    /* background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center; */
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  #calculate {
+    margin: 10px;
+    
+  }
+
+  #buttonsDiv {
+      display: flex;
+      flex-direction: row;
+      /* width: 100%; */
+      max-width: 100%;
+      margin: 0;
+  }
+
+  .row {
+    display:flex;
+    width: 100%;
+  }
+  
+  .digits {
+    background-color: rgba(162,162,162, .65);
+    border-radius: 15px;
+    height:70px;
+    width: 100px;
     font-size: 60px;
-    color: red;
-    border-radius: 10px;
-}
-
-.math {
-    border: 1px red solid;
-    width: 90%;
-    height: 18%;
-    margin: auto;
-    line-height: 80px;
-    margin-top: 4%;
-    border-radius: 25px;
-    color: red;
-    font-size: 60px;
+    margin: 4px;
     text-align: center;
-}
-
-#actionDiv {
-    border: 1px red solid;
-    width: 21%;
-    height: 90%;
-    border-radius: 30px;
-    margin-top: 2%;
-    margin-left: 3%;
-}
-
-.action {
-    border: 1px red solid;
-    width: 90%;
-    height: 22%;
-    margin: auto;
-    line-height: 16%;
-    margin-top: 4%;
-    border-radius: 25px;
-    color: red;
+    line-height: 70px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .digits:hover {
+    background-color: rgba(162,162,162, .65);
+    border-radius: 15px;
+    height:70px;
+    font-size: 65px;
+    margin: 4px;
     text-align: center;
-    line-height: 90px;
-}
+    line-height: 70px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+  }
+
+  #signs {
+    background-color: red;
+    /* position: relative; */
+    width: 200px;
+    height: 200px;
+  }
+  
+  @media only screen and (max-width: 370px){
+    #outside {
+      background-size: cover;
+    }
+  }
+  
+  @media only screen and (min-width: 370px){
+    #parentNumber {
+    /* background: url("https://media.giphy.com/media/7OWdNvyaMr3BuQ8uMk/giphy.gif") center; */
+    height: 120px;
+    }
+    
+    #outside {
+      height: 560px;
+    }
+  }
